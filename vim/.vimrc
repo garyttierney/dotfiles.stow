@@ -7,17 +7,16 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
-"Plugins {{
+""" Plugins
 
-" let Vundle manage Vundle
+"" let Vundle manage Vundle
 Plugin 'gmarik/vundle'
 
-" VCS {{
+"" VCS
 Plugin 'tpope/vim-fugitive'
-"}}
 
 
-"System {{
+"" System
 Plugin 'tpope/vim-surround'             " make working with tags / quotes / parentheses / etc easier
 Plugin 'scrooloose/syntastic'     " syntax checking
 Plugin 'Raimondi/delimitMate'     " automatically insert closing braces / parentheses / quotes
@@ -26,15 +25,12 @@ Plugin 'mhinz/vim-signify'        " inline diff in the margin
 Plugin 'scrooloose/nerdtree'      " file tree
 Plugin 'jistr/vim-nerdtree-tabs'  " easier navigation for nerdtree buffers
 Plugin 'Lokaltog/vim-easymotion'
-"}}
 
-"Theme {{"
+"" Theme
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'skammer/vim-css-color'
 Plugin 'mgutz/vim-colors'
-"}}
 
-"}}
 call vundle#end()
 
 filetype plugin indent on    " required
@@ -49,7 +45,7 @@ au TabLeave * silent! :wa
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
 
-" Basics {{
+"" Basics
 syntax enable
 set number        " always show line numbers
 set t_Co=256
@@ -75,14 +71,13 @@ set visualbell           " don't beep
 set noerrorbells         " don't beep
 set list listchars=tab:»\ ,trail:·
 colorscheme solarized
-"}}
 
 
-"Utility mappings {{
+""Utility mappings
 cmap w!! w !sudo tee % >/dev/null
-"}}
 
-"Programing {{
+
+""Programing
 
 "how many spaces we want for tabs
 set tabstop=4
@@ -106,5 +101,11 @@ if has ('folding')
     set foldcolumn=0
 endif
 
-"}}
+
+
+" NerdTree
+map <leader>t :NERDTreeToggle<CR>
+let NERDTreeIgnore=['\.pyc$', '\~$']
+let g:nerdtree_tabs_open_on_gui_startup = 0
+let g:nerdtree_tabs_open_on_console_startup = 0
 

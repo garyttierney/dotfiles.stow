@@ -13,8 +13,14 @@ function install_vim_dotfiles() {
 
 function install_xresources_dotfiles() {
   stow xresources -t $HOME
+  [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 }
- 
 
+function install_tmux_dotfiles() {
+  stow tmux -t $HOME
+} 
+
+
+install_tmux_dotfiles
 install_vim_dotfiles
 install_xresources_dotfiles
